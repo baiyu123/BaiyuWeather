@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">楠楠的禮物</string>
+    <string name="see_weather">看天氣</string>
+    <string name="go_home">返屋企</string>
+    <string name="home_address">Pak Long Tsuen, Lung Kwu Tan, Tuen Mun, Hong Kong</string>
+    <string name="latitude">22.391</string>
+    <string name="longtitude">113.921</string>
+    <string name="key">2da547474278edef7297721e5b4cafb7</string>
+</resources>
