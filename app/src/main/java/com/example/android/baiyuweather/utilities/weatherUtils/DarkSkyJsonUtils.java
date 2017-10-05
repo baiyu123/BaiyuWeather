@@ -1,4 +1,4 @@
-package com.example.android.baiyuweather.utilities;
+package com.example.android.baiyuweather.utilities.weatherUtils;
 
 import android.content.Context;
 
@@ -7,7 +7,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.net.HttpURLConnection;
-import com.example.android.baiyuweather.utilities.SunshineDateUtils;
+import com.example.android.baiyuweather.utilities.weatherUtils.SunshineDateUtils;
+import com.example.android.baiyuweather.utilities.weatherUtils.WeatherDataHolder;
 
 /**
  * Created by Baiyubest on 10/2/2017.
@@ -16,8 +17,8 @@ import com.example.android.baiyuweather.utilities.SunshineDateUtils;
 public class DarkSkyJsonUtils {
 
 
-
-    public static WeatherDataHolder[] getSimpleWeatherStringsFromJson(Context context, String forecastJsonStr)
+    //fetch data into WeatherDataHolder array
+    public static WeatherDataHolder[] getWeatherDataFromJson(Context context, String forecastJsonStr)
             throws JSONException {
 
 

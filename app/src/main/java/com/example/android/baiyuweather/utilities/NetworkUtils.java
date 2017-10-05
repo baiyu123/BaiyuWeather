@@ -1,8 +1,10 @@
-package com.example.android.baiyuweather;
+package com.example.android.baiyuweather.utilities;
 
 import android.content.Context;
 import android.content.res.Resources;
 import android.net.Uri;
+
+import com.example.android.baiyuweather.R;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,6 +12,8 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
+
+import javax.net.ssl.HttpsURLConnection;
 
 /**
  * Created by Baiyubest on 10/2/2017.
@@ -34,6 +38,13 @@ public final class NetworkUtils {
         }
         return url;
     }
+    public static String dictionaryEntries() {
+        final String language = "en";
+        final String word = "Ace";
+        final String word_id = word.toLowerCase(); //word id is case sensitive and lowercase is required
+        return "https://od-api.oxforddictionaries.com:443/api/v1/entries/" + language + "/" + word_id;
+    }
+
 
     public static String getResponseFromHttpUrl(URL url) throws IOException {
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();

@@ -1,9 +1,29 @@
 <resources>
-    <string name="app_name">楠楠的禮物</string>
+    <string name="app_name">weather</string>
     <string name="see_weather">看天氣</string>
     <string name="go_home">返屋企</string>
+    <!--
     <string name="home_address">Pak Long Tsuen, Lung Kwu Tan, Tuen Mun, Hong Kong</string>
     <string name="latitude">22.391</string>
-    <string name="longtitude">113.921</string>
+    <string name="longtitude">113.921</string>-->
+    <string name="home_address">park 20, San Mateo, CA</string>
+    <string name="latitude">37.56</string>
+    <string name="longtitude">-122.32</string>
     <string name="key">2da547474278edef7297721e5b4cafb7</string>
+    <string name="dictionary_key">	4d29404d564113657b816b0f3c08536d</string>
+    <string name="app_id">dcaa7e64</string>
+
+    <string name="apparent_temp">體感溫度</string>
+    <string name="humidity">濕度</string>
+    <string name="windspeed">風速</string>
+    <string name="windbearing">風向</string>
+    <string name="precip_probablity">降水概率</string>
+    <string name="North">北</string>
+    <string name="East">東</string>
+    <string name="South">南</string>
+    <string name="West">西</string>
+    <!-- notification -->
+    <string name="notification_title">天氣提醒</string>
+    <string name="notification_content">天氣寒冷，多穿衣服</string>
+
 </resources>

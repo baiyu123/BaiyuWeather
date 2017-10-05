@@ -1,10 +1,12 @@
-package com.example.android.baiyuweather.utilities;
+package com.example.android.baiyuweather.utilities.weatherUtils;
+
+import java.io.Serializable;
 
 /**
  * Created by Baiyubest on 10/2/2017.
  */
 
-public class WeatherDataHolder {
+public class WeatherDataHolder implements Serializable{
     public String Date;
     public String Summary;
     public String IconName;

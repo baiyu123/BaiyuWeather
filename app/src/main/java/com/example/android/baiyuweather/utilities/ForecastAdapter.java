@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.android.baiyuweather.R;
+import com.example.android.baiyuweather.utilities.weatherUtils.DarkSkyWeatherUtils;
+import com.example.android.baiyuweather.utilities.weatherUtils.WeatherDataHolder;
 
 /**
  * Created by Baiyubest on 10/3/2017.
@@ -22,9 +24,12 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Foreca
     private boolean mUseTodayLayout;
     private WeatherDataHolder[] mWeatherData;
 
-    public ForecastAdapter(Context context){
+    private ForecastAdapterOnClickHandler mOnclickHandler;
+
+    public ForecastAdapter(Context context, ForecastAdapterOnClickHandler handler){
         mContext = context;
         mUseTodayLayout = true;
+        mOnclickHandler = handler;
     }
 
     @Override
@@ -50,6 +55,7 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Foreca
     @Override
     public void onBindViewHolder(ForecastAdapter.ForecastAdapterViewHolder holder, int position) {
         int imgId = DarkSkyWeatherUtils.getImgIdWithJson(mWeatherData[position].IconName);
+        holder.position = position;
         holder.iconView.setImageResource(imgId);
         holder.dateView.setText(mWeatherData[position].Date);
         holder.lowTempView.setText(Integer.toString(mWeatherData[position].LowTemp)+"°");
@@ -78,19 +84,30 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Foreca
         mWeatherData = data;
     }
 
-    class ForecastAdapterViewHolder extends RecyclerView.ViewHolder {
+    class ForecastAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         final ImageView iconView;
         final TextView dateView;
         final TextView descriptionView;
         final TextView highTempView;
         final TextView lowTempView;
+        int position;
         public ForecastAdapterViewHolder(View itemView) {
             super(itemView);
+            itemView.setOnClickListener(this);
             iconView = (ImageView) itemView.findViewById(R.id.weather_icon);
             dateView = (TextView) itemView.findViewById(R.id.date_text);
             descriptionView = (TextView) itemView.findViewById(R.id.weather_discription);
-            highTempView = (TextView) itemView.findViewById(R.id.high_temp);
+            highTempView = (TextView) itemView.findViewById(R.id.detail_high_temp);
             lowTempView = (TextView) itemView.findViewById(R.id.min_temp);
         }
+
+        @Override
+        public void onClick(View v) {
+            mOnclickHandler.onClick(mWeatherData[position]);
+        }
+    }
+
+    public interface ForecastAdapterOnClickHandler {
+        void onClick(WeatherDataHolder weatherForDay);
     }
 }

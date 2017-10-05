@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.example.android.baiyuweather.utilities.notificationUtils.NotificationUtils;
+
 public class MainActivity extends AppCompatActivity {
 
     ImageView mSeeWeatherIcon;
@@ -19,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         mSeeWeatherIcon = (ImageView) findViewById(R.id.weather_icon);
         mGoHomeIcon = (ImageView) findViewById(R.id.home_icon);
         setListener();
+        //NotificationUtils.remindUser(this);
     }
 
     private void setListener(){

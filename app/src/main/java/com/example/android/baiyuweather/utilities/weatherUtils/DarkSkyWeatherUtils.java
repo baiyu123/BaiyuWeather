@@ -1,4 +1,7 @@
-package com.example.android.baiyuweather.utilities;
+package com.example.android.baiyuweather.utilities.weatherUtils;
+
+import android.content.Context;
+import android.content.res.Resources;
 
 import com.example.android.baiyuweather.R;
 
@@ -7,6 +10,7 @@ import com.example.android.baiyuweather.R;
  */
 
 public class DarkSkyWeatherUtils {
+    //get corresbonding img ID with icon name
     public static int getImgIdWithJson(String str){
         if(str.equals("clear-day")||str.equals("clear-night")){
             return R.drawable.clear_day;
@@ -45,5 +49,19 @@ public class DarkSkyWeatherUtils {
             return R.drawable.flower;
         }
 
+    }
+    public static String getWindDirection(int bearing, Context context){
+        if((bearing >= 0 && bearing<=45)||(bearing<=360 && bearing > 315)){
+            return context.getString(R.string.North);
+        }
+        else if((bearing > 45 && bearing<=135)){
+            return context.getString(R.string.East);
+        }
+        else if((bearing > 135 && bearing<=225)){
+            return context.getString(R.string.South);
+        }
+        else{
+            return context.getString(R.string.West);
+        }
     }
 }

@@ -34,9 +34,9 @@
 
     <TextView
         android:id="@+id/weather_discription"
-        android:layout_width="wrap_content"
-        android:layout_height="19dp"
-        android:layout_marginBottom="-10dp"
+        android:layout_width="166dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp"
         android:layout_marginLeft="0dp"
         android:text="Sunny"
         android:textAlignment="textStart"
@@ -51,12 +51,12 @@
         android:text="55"
         android:textAlignment="textStart"
         android:textSize="30sp"
-        app:layout_constraintRight_toLeftOf="@+id/high_temp"
-        app:layout_constraintTop_toTopOf="@+id/high_temp"
+        app:layout_constraintRight_toLeftOf="@+id/detail_high_temp"
+        app:layout_constraintTop_toTopOf="@+id/detail_high_temp"
         android:layout_marginTop="-9dp" />
 
     <TextView
-        android:id="@+id/high_temp"
+        android:id="@+id/detail_high_temp"
         android:layout_width="55dp"
         android:layout_height="38dp"
         android:layout_marginRight="4dp"
