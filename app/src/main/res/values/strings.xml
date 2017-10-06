@@ -6,9 +6,9 @@
     <!--<string name="home_address">Pak Long Tsuen, Lung Kwu Tan, Tuen Mun, Hong Kong</string>-->
     <!--<string name="latitude">22.391</string>-->
     <!--<string name="longtitude">113.921</string>-->
-    <!--&lt;!&ndash;<string name="home_address">park 20, San Mateo, CA</string>&ndash;&gt;-->
-    <!--&lt;!&ndash;<string name="latitude">37.56</string>&ndash;&gt;-->
-    <!--&lt;!&ndash;<string name="longtitude">-122.32</string>&ndash;&gt;-->
+    <!--<string name="home_address">park 20, San Mateo, CA</string>-->
+    <!--<string name="latitude">37.56</string>-->
+    <!--<string name="longtitude">-122.32</string>-->
     <!--<string name="key">2da547474278edef7297721e5b4cafb7</string>-->
     <!--<string name="dictionary_key">	4d29404d564113657b816b0f3c08536d</string>-->
     <!--<string name="app_id">dcaa7e64</string>-->
@@ -29,8 +29,8 @@
     <!--<string name="editText_hint">請輸入英文單詞</string>-->
     <!--<string name="word_search">搜索</string>-->
 
-    <string name="app_name">weather</string>
-    <string name="see_weather">看天氣</string>
+    <string name="app_name">穎楠專用</string>
+    <string name="see_weather">睇天氣</string>
     <string name="go_home">返屋企</string>
     <string name="search_dictionary">查詞典</string>
     <string name="home_address">Pak Long Tsuen, Lung Kwu Tan, Tuen Mun, Hong Kong</string>

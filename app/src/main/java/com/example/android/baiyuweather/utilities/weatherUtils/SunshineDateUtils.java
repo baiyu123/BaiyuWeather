@@ -72,7 +72,7 @@ public final class SunshineDateUtils {
     public static long getLocalDateFromUTC(long utcDate) {
         TimeZone tz = TimeZone.getDefault();
         long gmtOffset = tz.getOffset(utcDate);
-        return utcDate - gmtOffset;
+        return utcDate + gmtOffset;
     }
 
     /**
@@ -85,7 +85,7 @@ public final class SunshineDateUtils {
     public static long getUTCDateFromLocal(long localDate) {
         TimeZone tz = TimeZone.getDefault();
         long gmtOffset = tz.getOffset(localDate);
-        return localDate + gmtOffset;
+        return localDate - gmtOffset;
     }
 
     /**
@@ -108,7 +108,7 @@ public final class SunshineDateUtils {
      */
     public static String getFriendlyDateString(Context context, long dateInMillis, boolean showFullDate) {
 
-        long localDate = getLocalDateFromUTC(dateInMillis);
+        long localDate = dateInMillis;//getLocalDateFromUTC(dateInMillis);
         long dayNumber = getDayNumber(localDate);
         long currentDayNumber = getDayNumber(System.currentTimeMillis());
 

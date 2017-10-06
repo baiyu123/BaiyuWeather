@@ -12,7 +12,10 @@
         android:roundIcon="@drawable/flower"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:launchMode="singleTop"
+            >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,13 +24,20 @@
         </activity>
         <activity
             android:name=".WeatherActivity"
+            android:label="@string/see_weather"
+            android:launchMode="singleTop"
             android:parentActivityName=".MainActivity" />
         <activity
+            android:label="@string/see_weather"
             android:name=".WeatherActivityDetail"
+            android:launchMode="singleTop"
             android:parentActivityName=".WeatherActivity" />
         <activity android:name=".DictionaryActivity"
+            android:launchMode="singleTop"
+            android:label="@string/search_dictionary"
             android:parentActivityName=".MainActivity"/>
         <activity android:name=".DictionaryResultActivity"
+            android:label="@string/search_dictionary"
             android:parentActivityName=".DictionaryActivity"></activity>
 
 

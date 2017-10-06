@@ -60,6 +60,10 @@ public class DictionaryResultActivity extends AppCompatActivity {
     //in android calling network requests on the main thread forbidden by default
     //create class to do async job
     private class CallbackTask extends AsyncTask<String, Integer, String> {
+        @Override
+        protected void onPreExecute(){
+            loading();
+        }
 
         @Override
         protected String doInBackground(String... params) {
@@ -111,6 +115,12 @@ public class DictionaryResultActivity extends AppCompatActivity {
             else{
                 addUnfound();
             }
+        }
+
+        private void loading(){
+            LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View loading = inflater.inflate(R.layout.word_loading, null);
+            setContentView(loading);
         }
         private void addUnfound(){
             LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
