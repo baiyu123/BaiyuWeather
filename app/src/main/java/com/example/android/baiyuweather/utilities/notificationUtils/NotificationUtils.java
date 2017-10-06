@@ -57,16 +57,16 @@ public class NotificationUtils {
         notificationManager.cancelAll();
     }
 
-    public static void remindUser(Context context) {
+    public static void remindUser(Context context, int titleId, int textId) {
 
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(context)
                 .setColor(ContextCompat.getColor(context, R.color.colorPrimary))
                 .setSmallIcon(R.drawable.flower)
                 .setLargeIcon(largeIcon(context))
-                .setContentTitle(context.getString(R.string.notification_title))
-                .setContentText(context.getString(R.string.notification_content))
+                .setContentTitle(context.getString(titleId))
+                .setContentText(context.getString(textId))
                 .setStyle(new NotificationCompat.BigTextStyle().bigText(
-                        context.getString(R.string.notification_content)))
+                        context.getString(textId)))
                 .setDefaults(Notification.DEFAULT_VIBRATE)
                 .setContentIntent(contentIntent(context))
                 .setAutoCancel(true);

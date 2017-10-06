@@ -1,69 +1,72 @@
 package com.example.android.baiyuweather;
 
-import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-
-import com.example.android.baiyuweather.utilities.NetworkUtils;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.URL;
-
-import javax.net.ssl.HttpsURLConnection;
+import android.support.v4.app.NavUtils;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class DictionaryActivity extends AppCompatActivity {
     String mWordData;
+    Context mContext;
+    EditText mEditText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dictionary);
-        new CallbackTask().execute(NetworkUtils.dictionaryEntries());
-    }
 
+        Button button = (Button) findViewById(R.id.dictionary_search);
+        mEditText = (EditText) findViewById(R.id.dictionary_editText);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DictionaryActivity.this, DictionaryResultActivity.class);
+                intent.putExtra("query",mEditText.getText().toString());
+                startActivity(intent);
+            }
+        });
 
-
-
-    //in android calling network requests on the main thread forbidden by default
-    //create class to do async job
-    private class CallbackTask extends AsyncTask<String, Integer, String> {
-
-        @Override
-        protected String doInBackground(String... params) {
-
-            //TODO: replace with your own app id and app key
-            final String app_id = getString(R.string.app_id);
-            final String app_key = getString(R.string.dictionary_key);
-            try {
-                URL url = new URL(params[0]);
-                HttpsURLConnection urlConnection = (HttpsURLConnection) url.openConnection();
-                urlConnection.setRequestProperty("Accept","application/json");
-                urlConnection.setRequestProperty("app_id",app_id);
-                urlConnection.setRequestProperty("app_key",app_key);
-
-                // read the output from the server
-                BufferedReader reader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
-                StringBuilder stringBuilder = new StringBuilder();
-
-                String line = null;
-                while ((line = reader.readLine()) != null) {
-                    stringBuilder.append(line + "\n");
+        mEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    Intent intent = new Intent(DictionaryActivity.this, DictionaryResultActivity.class);
+                    intent.putExtra("query",mEditText.getText().toString());
+                    startActivity(intent);
+                    return true;
                 }
-
-                return stringBuilder.toString();
-
+                return false;
             }
-            catch (Exception e) {
-                e.printStackTrace();
-                return e.toString();
-            }
-        }
+        });
+        //back button
+        ActionBar actionBar = this.getSupportActionBar();
 
-        @Override
-        protected void onPostExecute(String result) {
-            super.onPostExecute(result);
-            mWordData = result;
+        // Set the action bar back button to look like an up button
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
         }
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
+
 }
 

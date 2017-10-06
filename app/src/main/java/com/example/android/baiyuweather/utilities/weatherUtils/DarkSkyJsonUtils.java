@@ -67,6 +67,7 @@ public class DarkSkyJsonUtils {
             parsedWeatherDatas[i].WindSpeed = (int)Math.round(dailyObj.getDouble("windSpeed"));
             parsedWeatherDatas[i].WindBearing = dailyObj.getInt("windBearing");
             parsedWeatherDatas[i].PrecipProbability = (int)(dailyObj.getDouble("precipProbability")*100);
+            parsedWeatherDatas[i].PrecipIntensity = dailyObj.getDouble("precipIntensity");
         }
 
 

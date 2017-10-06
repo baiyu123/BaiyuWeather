@@ -38,10 +38,9 @@ public final class NetworkUtils {
         }
         return url;
     }
-    public static String dictionaryEntries() {
+    public static String dictionaryEntries(String searchWord) {
         final String language = "en";
-        final String word = "Ace";
-        final String word_id = word.toLowerCase(); //word id is case sensitive and lowercase is required
+        final String word_id = searchWord.toLowerCase(); //word id is case sensitive and lowercase is required
         return "https://od-api.oxforddictionaries.com:443/api/v1/entries/" + language + "/" + word_id;
     }
 

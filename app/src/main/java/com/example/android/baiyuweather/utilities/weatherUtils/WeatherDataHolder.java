@@ -18,6 +18,7 @@ public class WeatherDataHolder implements Serializable{
     public int WindSpeed;
     public int WindBearing;
     public int PrecipProbability;
+    public double PrecipIntensity;
     public WeatherDataHolder(){
 
     }
