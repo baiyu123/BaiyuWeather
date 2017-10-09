@@ -18,7 +18,7 @@ public class ReminderTasks {
     public static void executeTask(Context context, String action, WeatherDataHolder data){
         if(ACTION_REMIND_USER_UMBRELLA.equals(action)){
             Random rand = new Random();
-            int n = rand.nextInt(2);
+            int n = rand.nextInt(3);
             if(data.PrecipIntensity < 0.5){
                 switch (n){
                     case 0:  NotificationUtils.remindUser(context,R.string.notification_title, R.string.notification_light1 );
